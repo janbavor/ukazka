@@ -3,31 +3,15 @@ import requests
 import customtkinter
 import math
 
-# # Funkce
-# def insult_me():
-#     user_language = drop_down_language.get()
-#     my_parameters = {
-#         "lang": user_language,
-#         "type": "json"
-#     }
-#     response = requests.get("https://evilinsult.com/generate_insult.php", params=my_parameters)
-#     response.raise_for_status()
-#     data = response.json()
-#     insult_label.configure(text=data["insult"])
-
-from tkinter import *
-import math
-import requests
-
-# Okno
+# Window
 window = customtkinter.CTk()
 window.title("Convert CURRENCY")
 window.resizable(False, False)
-window.geometry("420x180+1600+100")
-window.iconbitmap("P:\\ucim-se-python\PROGRAMY\API\PREVOD_MEN\icon.ico")
+window.geometry("420x180+100+100")
+window.iconbitmap("PREVOD_MEN/icon.ico")
 customtkinter.set_appearance_mode("Dark")
 
-# Funkce
+# Functions
 def convert_money():
     try: 
         currency_from = drop_down_from.get()
@@ -49,7 +33,7 @@ def convert_money():
     except:
         notif_var.set(f"Zadejte částku")
 
-# Uživatelský vstup
+# User_input
 user_input = customtkinter.CTkEntry(window, justify=RIGHT)
 user_input.grid(row=0, column=0, padx=10, pady= (25,10))
 user_input.insert(0,"0.00") #defaultní hodnota, index a co tam chci
@@ -58,7 +42,7 @@ user_input.get()
 
 # Roletka - z jaké měny
 drop_down_from = StringVar(window)
-drop_down_from.set("CZK") #výchozí hodnota
+drop_down_from.set("CZK") 
 drop_down_from_options = customtkinter.CTkOptionMenu(window, variable=drop_down_from, values=["EUR", "USD", "GBP", "CZK"], width=30)
 drop_down_from_options.grid(row=0, column=1, padx=15, pady=(25,10))
 
